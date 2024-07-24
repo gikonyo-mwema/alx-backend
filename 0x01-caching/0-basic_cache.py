@@ -2,6 +2,7 @@
 """
 Basic Caching system module.
 """
+from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
