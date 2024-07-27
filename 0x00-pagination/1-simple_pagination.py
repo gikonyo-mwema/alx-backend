@@ -4,7 +4,6 @@ Function to calculate the start and end indices for pagination.
 """
 
 import csv
-import math
 from typing import List, Tuple
 
 
@@ -56,15 +55,12 @@ class Server:
         - List[List]: A list of lists containing
         the rows for the specified page.
         """
-        assert isinstance(page, int) and page > 0,
-        "Page number must be a positive integer."
-        assert isinstance(page_size, int) and page_size > 0,
-        "Page size must be a positive integer."
-
+        assert type(page) == int and type(page_size) == int
+        assert (page > 0 and page_size > 0)
         start_index, end_index = index_range(page, page_size)
         dataset = self.dataset()
 
-        if start_index >= len(dataset):
+        if start_index > len(dataset):
             return []
 
         return dataset[start_index:end_index]
