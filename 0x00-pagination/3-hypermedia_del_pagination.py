@@ -40,7 +40,8 @@ class Server:
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """
-        Get a page of the dataset with hypermedia information, resilient to deletions.
+        Get a page of the dataset with hypermedia information,
+        resilient to deletions.
 
         Parameters:
         - index (int): The current start index of the return page.
@@ -51,15 +52,16 @@ class Server:
         """
         indexed_dataset = self.indexed_dataset()
         assert 0 <= index < len(indexed_dataset)
-        
+
         data = []
         current_index = index
         for _ in range(page_size):
             if current_index in indexed_dataset:
                 data.append(indexed_dataset[current_index])
             current_index += 1
-        
-        next_index = current_index if current_index < len(indexed_dataset) else None
+
+        next_index = current_index
+        if current_index < len(indexed_dataset) else None
 
         return {
             'index': index,
