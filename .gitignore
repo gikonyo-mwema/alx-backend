@@ -1,0 +1,9 @@
+# Installed Node.js dependencies
+node_modules/
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+
+# Local Redis database snapshots
+dump.rdb
